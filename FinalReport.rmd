@@ -54,11 +54,29 @@ basicCC + geom_bar(stat="identity", position = "dodge")
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+
+```{r}
+table1 <- xtabs(~BIGBANG + POSTLIFE, data=GSS)
+rowPerc(table1)
+colPerc(table1)
+```
+
+  The numerical summery shows twice as many people who believe in the BIGBANG theory do believe in POSTLIFE.
+
 ## Inferential Results
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+  The P- value is .07143 which is not a small number meaning there is no difference in the belief of the BIGBANG theory and POSTLIFE. Therefore we would fail to reject the null hypothesis.
 
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+
+ Due to the fact that we failed to reject the null hypothesis, the evidence shows that the belief in the BIGBANG theory and the belief in the POSTLIFE are independent.
